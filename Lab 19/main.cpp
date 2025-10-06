@@ -80,6 +80,7 @@ float ran() {
     int r = rand() % 41 + 10;
     return r / 10.0f;
 }
+
 int main() {
     srand(time(0));
 
@@ -89,33 +90,4 @@ int main() {
     movies.emplace_back("Titanic");
     movies.emplace_back("The Notebook");
 
-    ifstream file("review.txt");
-    if (!file) {
-        cerr << "Could not open review.txt\n";
-        return 1;
-    }
-
-    vector<string> comments;
-    string line;
-    while (getline(file, line)) {
-        if (!line.empty()) {
-            comments.push_back(line);
-        }
-    }
-    file.close();
-
-    int num = 0;
-    for (auto &movie : movies) {
-        for (int i = 0; i < 3 && num < (int)comments.size(); i++) {
-            float rating = ran();
-            movie.review(rating, comments[num]);
-            num++;
-        }
-    }
-
-    for (auto &movie : movies)
-        movie.output();
-
-    return 0;
-}
 
