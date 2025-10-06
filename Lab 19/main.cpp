@@ -4,11 +4,38 @@
 //
 //  Created by Nafi on 10/5/25.
 //
+//COSMC 210|Mehraj Hasan Nafi
+// IDE used: XCode
 
 #include <iostream>
+#include <string>
+#include <fstream>
+#include <vector>
+#include <vector>
+#include <iomanip>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+struct Review {
+    float rating;
+    string comment;
+    Review *next;
+};
+
+class Movie {
+private:
+    string title;
+    Review *head;
+public:
+    Movie(string t) : title(t), head(nullptr) {}
+    
+    ~Movie() {
+        while (head){
+            Review *temp = head;
+            head =  head->next;
+            delete temp;
+        }
+    }
 }
+
