@@ -11,7 +11,6 @@
 #include <string>
 #include <fstream>
 #include <vector>
-#include <vector>
 #include <iomanip>
 #include <cstdlib>
 #include <ctime>
@@ -37,5 +36,17 @@ public:
             delete temp;
         }
     }
-}
+    
+    void review(float rating, string &comment) {
+            Review *newNode = new Review{rating, comment, nullptr};
+            if (head = nullptr) {  // ❌ Logic error: should be (if (!head)), assignment instead of comparison
+                head = newNode;
+            } else {
+                Review *temp = head;
+                while (temp->next)
+                    temp = temp->next;
+                temp->next = newNode;
+            }
+        }
+};
 
