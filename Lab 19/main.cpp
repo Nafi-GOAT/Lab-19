@@ -80,7 +80,6 @@ float ran() {
     int r = rand() % 41 + 10;
     return r / 10.0f;
 }
-
 int main() {
     srand(time(0));
 
