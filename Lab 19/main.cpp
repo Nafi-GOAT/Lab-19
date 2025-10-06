@@ -39,7 +39,7 @@ public:
     
     void review(float rating, string &comment) {
             Review *newNode = new Review{rating, comment, nullptr};
-            if (head = nullptr) {  // ❌ Logic error: should be (if (!head)), assignment instead of comparison
+            if (head = nullptr) {  
                 head = newNode;
             } else {
                 Review *temp = head;
