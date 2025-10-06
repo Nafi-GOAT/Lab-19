@@ -39,7 +39,7 @@ public:
     
     void review(float rating, string &comment) {
             Review *newNode = new Review{rating, comment, nullptr};
-            if (!head = nullptr) {
+            if (head == nullptr) {
                 head = newNode;
             } else {
                 Review *temp = head;
@@ -62,13 +62,13 @@ public:
         float avg = (count > 0) ? total / count : 0;
 
         cout << "Movie: " << title
-             << " (Average Rating: " << fixed << setprecision(1) << avg << "\n";
+                     << " (Average Rating: " << fixed << setprecision(1) << avg << ")" <<endl;
             temp = head;
         count = 0;
         while (temp) {
             cout << "    > Review #" << ++count
-                 << ": " << temp->comment
-                 << " [" << fixed << setprecision(1) << temp->rating << endl;
+                             << ": " << temp->comment
+                             << " [" << fixed << setprecision(1) << temp->rating << "]"<<endl;
             
             temp = temp->next;
         }
